@@ -9,7 +9,7 @@ Catalog, Barcodes and Supplier data feed is provided via CSV files and the final
 
 ## Getting Started
 
-The solution has been worked out by Java including the CSV file processing steps and JUnit cases.
+The solution has been worked out in Java including the CSV file processing steps and JUnit cases.
 
 Interface design pattern is used in the application. Main.java is the  entry point of the application. 
 
