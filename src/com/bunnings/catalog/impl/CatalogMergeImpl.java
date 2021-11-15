@@ -55,7 +55,6 @@ public class CatalogMergeImpl implements CatalogMerge {
 					files = new File(absolutePath.toString()).listFiles(obj -> obj.isFile() && obj.getName().endsWith(".csv"));
 				}
 				
-				System.out.println(files);
 				
 				if(files.length > 0) {
 						for(File inputFile : files) {
@@ -108,7 +107,7 @@ public class CatalogMergeImpl implements CatalogMerge {
 	 * @return
 	 * @throws Exception 
 	 */
-	private static Set<String> getCombinedSKUList(Map<String, List<String>> listOfCatABarcodes,
+	public Set<String> getCombinedSKUList(Map<String, List<String>> listOfCatABarcodes,
 			Map<String, List<String>> listOfCatBBarcodes, List<Barcode> collectionOfABarcodes, List<Barcode> collectionOfBBarcodes) throws Exception {
 		
 		//Collecting the matching SKU from first catalog
@@ -157,7 +156,7 @@ public class CatalogMergeImpl implements CatalogMerge {
 	 * @return
 	 * @throws Exception 
 	 */
-	private static Set<Product> getCombinedListOfProducts(Map<String, List<String>> listOfCatABarcodes,
+	public Set<Product> getCombinedListOfProducts(Map<String, List<String>> listOfCatABarcodes,
 		Map<String, List<String>> listOfCatBBarcodes, List<Barcode> collectionOfABarcodes, List<Barcode> collectionOfBBarcodes, List<Product> collectionOfCatalogAProducts, List<Product> collectionOfCatalogBProducts) throws Exception {
 		Set<Product> combinedList = new HashSet<>();
 		try {
@@ -189,7 +188,7 @@ public class CatalogMergeImpl implements CatalogMerge {
 	 * @return
 	 * @throws Exception 
 	 */
-	private static Map<String, List<String>> createSupplierBarcodeMap(List<Barcode> collectionOfBarcodes, Map<String, List<String>> listOfCatBarcodes) throws Exception {
+	public Map<String, List<String>> createSupplierBarcodeMap(List<Barcode> collectionOfBarcodes, Map<String, List<String>> listOfCatBarcodes) throws Exception {
 		try {
 			collectionOfBarcodes.forEach(barcode -> {
 				listOfCatBarcodes.computeIfAbsent(barcode.getSupplierId(), k -> new ArrayList<>()).add(barcode.getBarcodes());
